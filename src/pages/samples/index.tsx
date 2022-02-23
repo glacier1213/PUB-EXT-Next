@@ -3,29 +3,38 @@ import {
   PageTitle,
   useLngLinks,
 } from "@arcnovus/wet-boew-react";
-import { useCurrentLanguage } from "../hooks/useCurrentLanguage";
+import { useCurrentLanguage } from "../../hooks/useCurrentLanguage";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
 
-export default function Home() {
+export default function Samples() {
   const currentLanguage = useCurrentLanguage();
-  const router = useRouter();
   const { lngLinks } = useLngLinks({
     currentLanguage,
     translatedPage: `/${currentLanguage == "en" ? "fr" : "en"}/home/`,
   });
-  const { t } = useTranslation("home-page");
+  const { t } = useTranslation("samples-page");
   return (
     <DefaultTemplate lngLinks={lngLinks}>
       <PageTitle text={t("title")} />
-      <p dangerouslySetInnerHTML={{ __html: t("intro") }} />
-      <a href={`/${currentLanguage}/samples`}>
-        <button className="btn btn-primary" type="button">
-          {t("sample-pages")}
-        </button>
-      </a>
+      <p>{t("intro")}</p>
+      <ul>
+        <li>
+          <a href={`/samples/basic-settings`}>{t("basic-setting")}</a>
+        </li>
+        <li>
+          <a href={`/samples/breadcrumbs`}>{t("breadcrumbs")}</a>
+        </li>
+      </ul>
+      <h3>{t("appTemplates")}</h3>
+      <ul>
+        <li>
+          <a href={`/${currentLanguage}/samples/sectionmenu`}>
+            {t("customMenu")}
+          </a>
+        </li>
+      </ul>
     </DefaultTemplate>
   );
 }
@@ -38,7 +47,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => ({
   props: {
     ...(await serverSideTranslations(locale ?? defaultLocale ?? "en", [
-      "home-page",
+      "samples-page",
     ])),
   },
 });
