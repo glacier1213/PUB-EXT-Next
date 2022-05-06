@@ -3,6 +3,7 @@ import {
   PageTitle,
   useLngLinks,
 } from "@arcnovus/wet-boew-react";
+
 import { useCurrentLanguage } from "../../hooks/useCurrentLanguage";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
