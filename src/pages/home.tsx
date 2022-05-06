@@ -16,6 +16,8 @@ export default function Home() {
     currentLanguage,
     translatedPage: `/${currentLanguage == "en" ? "fr" : "en"}/home/`,
   });
+  // AppTemplate
+  // DefaultTemplate
   const { t } = useTranslation("home-page");
   return (
     <DefaultTemplate lngLinks={lngLinks}>
@@ -24,6 +26,11 @@ export default function Home() {
       <a href={`/${currentLanguage}/samples`}>
         <button className="btn btn-primary" type="button">
           {t("sample-pages")}
+        </button>
+      </a> <span></span>
+      <a href={`/${currentLanguage}/publication`}>
+        <button className="btn btn-primary" type="button">
+          {t("pubEntry")}
         </button>
       </a>
     </DefaultTemplate>

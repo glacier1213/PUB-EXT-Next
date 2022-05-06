@@ -14,8 +14,8 @@ const Index: NextPage = () => {
       </Head>
       <div>
         <SplashTemplate
-          nameEng="WET for NextJS"
-          nameFra="BOEW pour NextJS"
+          nameEng="PubliCentrale"
+          nameFra="BOEW pour NextJSkjh"
           indexEng="/en/home"
           indexFra="/fr/home"
         />

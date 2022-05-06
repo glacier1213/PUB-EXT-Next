@@ -38,4 +38,4 @@ function WetForNextJsAppp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(WetForNextJsAppp);
+export default appWithTranslation(WetForNextJsAppp);//HOC 
